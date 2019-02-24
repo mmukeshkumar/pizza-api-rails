@@ -10,30 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190221004334) do
+ActiveRecord::Schema.define(version: 20190223184640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "pizzas", force: :cascade do |t|
+    t.string "name"
+    t.string "image_url"
+    t.text "description"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pizzas_toppings", id: false, force: :cascade do |t|
+    t.bigint "pizza_id", null: false
+    t.bigint "topping_id", null: false
+    t.index ["pizza_id", "topping_id"], name: "index_pizzas_toppings_on_pizza_id_and_topping_id"
+  end
+
   create_table "promotions", force: :cascade do |t|
     t.string "name"
-    t.decimal "discount_amount"
     t.decimal "discount_percentage"
+    t.date "expiry_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "toppings", force: :cascade do |t|
     t.string "name"
-    t.decimal "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "varieties", force: :cascade do |t|
-    t.string "name"
-    t.string "image_url"
-    t.text "description"
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

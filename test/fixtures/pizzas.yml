@@ -2,10 +2,12 @@
 
 one:
   name: MyString
+  image_url: MyString
+  description: MyText
   price: 9.99
-  variety: one
 
 two:
   name: MyString
+  image_url: MyString
+  description: MyText
   price: 9.99
-  variety: two
