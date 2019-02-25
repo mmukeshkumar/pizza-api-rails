@@ -10,14 +10,17 @@ class PizzaController < ApplicationController
 
   # POST /pizzas
   def create
-    @todo = Pizza.create!(pizza_add_update_params)
-    json_response(@todo, :created)
+    @pizza = Pizza.create!(pizza_add_update_params)
+    json_response(@pizza, :created)
   end
 
   # GET /pizzas/:id
   def show
     @pizza = Pizza.find(params[:id])
-    render json: @pizza
+    @responseMap = {}
+    @responseMap["pizza"] = @pizza
+    @responseMap["toppings"] = @pizza.toppings
+    render json: @responseMap
   end
 
   # PUT /pizzas/:id

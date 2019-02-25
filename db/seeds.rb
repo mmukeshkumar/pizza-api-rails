@@ -11,7 +11,7 @@ Pizza.create([{name: 'CHEESE',
               {name: 'PEPPERONI', image_url: 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Pepperoni_pizza.jpg', description: "You won't miss the gluten in this crust! Topped with cheesy goodness and turkey pepperoni, this pizza is bound to be a hit with the whole family.", price: 13.50},
               {name: 'MARGARITA', image_url: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg', description: 'Pizza Margherita was created by pizza maker named Raffaele Esposito to display the colors of an Italian flag', price: 11.50}])
 
-Promotion.create([{name: 'SUPER_BOWL_DEAL', discount_percentage: 10.00, expiry_date: Date.parse("Feb 4 2019")}, {name: 'HALF_OFF_DEAL', discount_percentage: 50.00, expiry_date: Date.parse("Jan 1 2044")}])
+Promotion.create([{name: 'SUPER_BOWL_DEAL', discount_percentage: 10.00, expiry_date: Date.parse("Feb 4 2019")}, {name: 'HALF_OFF_DEAL', discount_percentage: 50.00}])
 
 
 Topping.create([{name: 'PEPPERONI', price: 3.50},
