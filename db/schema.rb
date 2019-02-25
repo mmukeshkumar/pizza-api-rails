@@ -27,7 +27,8 @@ ActiveRecord::Schema.define(version: 20190223184640) do
   create_table "pizzas_toppings", id: false, force: :cascade do |t|
     t.bigint "pizza_id", null: false
     t.bigint "topping_id", null: false
-    t.index ["pizza_id", "topping_id"], name: "index_pizzas_toppings_on_pizza_id_and_topping_id"
+    t.index ["pizza_id"], name: "index_pizzas_toppings_on_pizza_id"
+    t.index ["topping_id"], name: "index_pizzas_toppings_on_topping_id"
   end
 
   create_table "promotions", force: :cascade do |t|
@@ -45,4 +46,6 @@ ActiveRecord::Schema.define(version: 20190223184640) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "pizzas_toppings", "pizzas"
+  add_foreign_key "pizzas_toppings", "toppings"
 end
